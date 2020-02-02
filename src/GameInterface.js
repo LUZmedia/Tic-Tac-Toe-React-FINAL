@@ -3,7 +3,7 @@ import './App.css';
 
 export default function reset () {
         return (
-            <button onClick={() => window.location.reload(false)}>
+            <button className="button" onClick={() => window.location.reload(false)}>
                 Reset!
             </button>
         );

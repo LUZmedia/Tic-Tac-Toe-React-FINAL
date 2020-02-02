@@ -18,11 +18,14 @@ export default class GameBoard extends React.Component { //you have the class an
     }
 
     handleClick(i) {
+        // eslint-disable-next-line no-unused-vars
+
         const squares = this.state.squares.slice();
         if(squares[i] == null ) {
             squares[i] = this.state.xIsNext ? 'X' : 'O';
-            this.status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            this.status = 'Next player: ' + (this.state.xIsNext ? 'O' : 'X');
         }
+
         this.setState({
             squares: squares,
             xIsNext: !this.state.xIsNext,
@@ -30,10 +33,12 @@ export default class GameBoard extends React.Component { //you have the class an
     }
 
 
+
+
     eachSquare(i)
     {
         return (
-            <GameSquare value={this.state.squares[i]}
+            <GameSquare value={this.state.squares[i] }
                         onClick={() => this.handleClick(i)}/>
         );
 
@@ -48,7 +53,10 @@ render () {//A render method is: render = property, the below function is the va
 
     if (winner) {
         this.status = 'Winner: ' + winner;
+
     }
+
+
     return (
 
         <div className="container">
@@ -78,6 +86,8 @@ render () {//A render method is: render = property, the below function is the va
 }
 
 }
+
+
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],
